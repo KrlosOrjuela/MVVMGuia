@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MVVMGuia.Views.PageMunu"
+    ios:Page.UseSafeArea="True"
+    NavigationPage.HasNavigationBar="False"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core">
+    <Grid>
+        <CollectionView
+            Margin="20,0"
+            x:Name="CollectionViewPageMenu"
+            VerticalOptions="FillAndExpand"
+            ItemsSource="{Binding ListPageMenu}" >
+            <CollectionView.Header>
+                <StackLayout>
+                    <Label
+                        Margin="10,27"
+                        TextColor="Purple"
+                        Text="Menu Page"
+                        FontSize="Subtitle"
+                        FontAttributes="Bold"
+                        />
+                </StackLayout>
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    Span="1"
+                    Orientation="Vertical"
+                    VerticalItemSpacing="20"
+                    HorizontalItemSpacing="10"
+                    />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Margin="20,0"
+                        HasShadow="False"
+                        CornerRadius="15"
+                        BackgroundColor="Thistle">
+                        <Grid ColumnDefinitions="Auto,Auto">
+                            <Image
+                                Margin="0,0,20,0"
+                                Grid.Column="0"
+                                HeightRequest="50"
+                                Source="{Binding Icon}"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                Text="{Binding Page}"
+                                VerticalOptions="Center"
+                                />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                CommandParameter="{Binding .}"
+                                Command="{Binding Path=BindingContext.NavegationPageCommand, Source={x:Reference CollectionViewPageMenu}}"
+                                />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
+

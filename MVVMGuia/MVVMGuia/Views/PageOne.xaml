@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MVVMGuia.Views.PageOne"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="Thistle"
+    NavigationPage.HasNavigationBar="False"
+    xmlns:Resource="clr-namespace:MVVMGuia.Resources"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" >
+
+    <Grid>
+        <StackLayout
+                Spacing="10"
+                Margin="10,0"
+                VerticalOptions="Start"
+                Orientation="Horizontal">
+            <Image
+                HeightRequest="35"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Source="{Resource:ImageResource MVVMGuia.Resources.Icons.ic_arrow_back.png}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OnBackButtonPressedCommand}" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label
+                Text="Back"
+                FontSize="Medium"
+                VerticalOptions="Center"
+                />
+        </StackLayout>
+        <StackLayout
+            Spacing="20"
+            Margin="20,0"
+            VerticalOptions="CenterAndExpand"> 
+            <Label
+                Text="Subtract Numbers"
+                FontAttributes="Bold"
+                TextColor="DarkSlateGray"
+                HorizontalOptions="CenterAndExpand"
+                />
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    Margin="0,7,7,0"
+                    Text="Number 1"
+                    FontAttributes="Bold"
+                    TextColor="DarkSlateGray"
+                    />
+                <Entry
+                    Keyboard="Numeric"
+                    Text="{Binding Number1}"
+                    Placeholder="Enter your Message"
+                    PlaceholderColor="LightSlateGray"
+                    HorizontalOptions="StartAndExpand"
+                    />
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    Margin="0,7,7,0"
+                    Text="Number 2"
+                    FontAttributes="Bold"
+                    TextColor="DarkSlateGray"
+                />
+                <Entry
+                    Keyboard="Numeric"
+                    Text="{Binding Number2}"
+                    Placeholder="Enter your Message"
+                    PlaceholderColor="LightSlateGray"
+                    HorizontalOptions="StartAndExpand"
+                    />
+            </StackLayout>
+
+            <Button
+                Text="Run"
+                Margin="80,0"
+                TextColor="Purple"
+                TextTransform="None"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                BackgroundColor="WhiteSmoke"
+                HorizontalOptions="FillAndExpand"
+                Command="{Binding SubtractNumbersCommand}"
+                />
+
+            <Label
+                FontSize="Subtitle"
+                FontAttributes="Bold"
+                Text="{Binding Result}"
+                HorizontalOptions="Center"/>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    Margin="0,5,5,0"
+                    Text="Picker:"
+                    FontAttributes="Bold"
+                    TextColor="DarkSlateGray"/>
+                <Picker
+                    Title="Selected Rol"
+                    TitleColor="Purple"
+                    SelectedItem="{Binding SelectedTypeRol}"
+                    HorizontalOptions="CenterAndExpand">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Administrador</x:String>
+                            <x:String>Empleado</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center">
+                <DatePicker
+                    TextColor="Purple"
+                    Date="{Binding Date, Mode=TwoWay}">
+                    <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                </DatePicker>
+                <Label
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    Text="{Binding SelectedDate}"
+                    />
+            </StackLayout>
+
+            <Button
+                Margin="80,60,80,0"
+                CornerRadius="15"
+                TextTransform="None"
+                TextColor="Purple"
+                Text="Navegation Page 2"
+                BackgroundColor="WhiteSmoke"
+                HorizontalOptions="FillAndExpand"
+                Command="{Binding NavegatePageTwoCommand}"
+                />
+        </StackLayout>
+    </Grid>
+</ContentPage>
+

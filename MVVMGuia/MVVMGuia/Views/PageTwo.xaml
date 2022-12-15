@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    ios:Page.UseSafeArea="True"
+    x:Class="MVVMGuia.Views.PageTwo"
+    NavigationPage.HasNavigationBar="False"
+    xmlns:Resource="clr-namespace:MVVMGuia.Resources"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core">
+    <Grid>
+        <StackLayout
+            Spacing="10"
+            Margin="10,0"
+            VerticalOptions="Start"
+            Orientation="Horizontal">
+            <Image
+                HeightRequest="35"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Source="{Resource:ImageResource MVVMGuia.Resources.Icons.ic_arrow_back.png}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OnBackButtonPressedCommand}" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label
+                Text="Back"
+                FontSize="Medium"
+                VerticalOptions="Center"
+                />
+        </StackLayout>
+
+        <CollectionView
+            Margin="20,70,20,0"
+            VerticalOptions="Start"
+            x:Name="CollectionViewUsers"
+            ItemsSource="{Binding ListUsers}" >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    Span="1"
+                    Orientation="Vertical"
+                    VerticalItemSpacing="20"
+                    HorizontalItemSpacing="10"
+                    />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Margin="20,0"
+                        HasShadow="False"
+                        CornerRadius="15"
+                        BackgroundColor="Thistle">
+                        <Grid ColumnDefinitions="Auto,Auto">
+                            <Image
+                                Grid.Column="0"
+                                HeightRequest="50"
+                                Source="{Binding Image}"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                Text="{Binding Name}"
+                                VerticalOptions="Center"
+                                />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                CommandParameter="{Binding .}"
+                                Command="{Binding Path=BindingContext.AlertCommand, Source={x:Reference CollectionViewUsers}}"
+                                />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
+

@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\" />
+    <None Remove="ViewModels\" />
+    <None Remove="Models\" />
+    <None Remove="Resources\" />
+    <None Remove="Resources\Icons\" />
+    <None Remove="Resources\Images\" />
+    <None Remove="Resources\Fonts\" />
+    <None Remove="Resources\Icons\ic_arrow_back.png" />
+    <None Remove="Resources\Icons\ic_user_four.png" />
+    <None Remove="Resources\Icons\ic_user_one.png" />
+    <None Remove="Resources\Icons\ic_user_three.png" />
+    <None Remove="Resources\Icons\ic_user_two.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Icons\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\ic_arrow_back.png" />
+  </ItemGroup>
+</Project>
