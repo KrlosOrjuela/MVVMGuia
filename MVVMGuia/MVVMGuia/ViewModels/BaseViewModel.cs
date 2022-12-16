@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace MVVMGuia.ViewModels
@@ -84,6 +85,13 @@ namespace MVVMGuia.ViewModels
 
         #endregion
 
+        #region Events Command
+        public ICommand TranslucentCommand => new Command(() => TranslucentCommandExecute());
+        public ICommand ChangeColorCommand => new Command(() => ChangeColorCommandExecute());
+        public ICommand HideStatusBarCommand => new Command(() => HideStatusBarCommandExecute());
+        public ICommand ShowStatusBarCommand => new Command(() => ShowStatusBarCommandExecute());
+        #endregion
+
         #region Methods
         /// <summary>
         /// Presents an alert dialog to the application user with a single cancel button.
@@ -101,22 +109,21 @@ namespace MVVMGuia.ViewModels
             return await Application.Current.MainPage.DisplayAlert(title, message, accept, cancel);
         }
 
-        public async virtual Task Init()
-        {
-        }
+        public async virtual Task Init() { }
+        public async virtual Task OnAppearing() { }
+        public async virtual Task OnDisappearing() { }
+        public async virtual Task OnBackButtonPressed() => await Navigation.PopAsync();
 
-        public async virtual Task OnAppearing()
-        {
-        }
+        #region Focusing Android: Status Bar
+        public void HideStatusBarCommandExecute() => DependencyService.Get<IEventStatusBar>().HideStatusBar();
+        public void ShowStatusBarCommandExecute() => DependencyService.Get<IEventStatusBar>().ShowStatusBar();
+        public void TranslucentCommandExecute() => DependencyService.Get<IEventStatusBar>().Translucent();
+        public void ChangeColorCommandExecute() => DependencyService.Get<IEventStatusBar>().ChangeColor("#D27D02");
+        #endregion
 
-        public async virtual Task OnDisappearing()
-        {
-        }
 
-        public async virtual Task OnBackButtonPressed()
-        {
-            await Navigation.PopAsync();
-        }
+
+
         #endregion
     }
 }

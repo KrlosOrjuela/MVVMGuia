@@ -45,6 +45,9 @@ namespace MVVMGuia.ViewModels
                 case 3:
                     await Navigation.PushAsync(new Views.PagePokemon());
                     break;
+                case 4:
+                    await Navigation.PushAsync(new Views.PageStatusBar());
+                    break;
             }
         }
 
@@ -64,11 +67,17 @@ namespace MVVMGuia.ViewModels
                     Page = "CollectionView",
                     Icon = "https://i.ibb.co/0ry37W9/ic-page2.png"
                 },
-                 new Models.Menu()
+                new Models.Menu()
                 {
                     Id = 3,
                     Page = "Pokemon",
                     Icon = "https://i.ibb.co/8b7SJFN/ic-pokemos.png"
+                },
+                new Models.Menu()
+                {
+                    Id = 4,
+                    Page = "Eventos StatusBar",
+                    Icon = "https://www.shutterstock.com/image-vector/status-bar-icon-vector-illustration-260nw-1728939814.jpg"
                 }
             };
         }

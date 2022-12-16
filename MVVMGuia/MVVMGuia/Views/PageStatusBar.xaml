@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MVVMGuia.Views.PageStatusBar"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="StyleButton" TargetType="Button">
+                <Setter Property="CornerRadius" Value="27" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid Padding="27">
+        <StackLayout
+            Spacing="27"
+            VerticalOptions="Center">
+
+            <Button Text="Translucent"
+                    BackgroundColor="Orange"
+                    Style="{StaticResource StyleButton}"
+                    Command="{Binding TranslucentCommand}"/>
+
+            <Button Text="Change Color"
+                    BackgroundColor="Red"
+                    Style="{StaticResource StyleButton}"
+                    Command="{Binding ChangeColorCommand}"/>
+
+            <Button Text="Show StatusBar"
+                    BackgroundColor="Peru"
+                    Style="{StaticResource StyleButton}"
+                    Command="{Binding ShowStatusBarCommand}"/>
+
+            <Button Text="Hide StatusBar"
+                    BackgroundColor="Green"
+                    Style="{StaticResource StyleButton}"
+                    Command="{Binding HideStatusBarCommand}"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
+
