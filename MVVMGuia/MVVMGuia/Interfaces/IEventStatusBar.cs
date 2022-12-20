@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MVVMGuia.ViewModels
+namespace MVVMGuia.Interfaces
 {
     public interface IEventStatusBar
     {

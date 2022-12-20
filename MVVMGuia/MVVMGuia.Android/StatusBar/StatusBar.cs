@@ -9,7 +9,7 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(StatusBar))]
 namespace MVVMGuia.Droid.StatusBar
 {
-    public class StatusBar : ViewModels.IEventStatusBar
+    public class StatusBar : Interfaces.IEventStatusBar
     {
         WindowManagerFlags _originalFlags;
 

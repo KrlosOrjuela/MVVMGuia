@@ -14,7 +14,7 @@
             VerticalOptions="Start"
             Orientation="Horizontal">
             <Image
-                HeightRequest="35"
+                HeightRequest="35" 
                 VerticalOptions="Center"
                 HorizontalOptions="Start"
                 Source="{Resource:ImageResource MVVMGuia.Resources.Icons.ic_arrow_back.png}">

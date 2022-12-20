@@ -27,6 +27,9 @@
     <None Remove="Resources\Icons\ic_user_one.png" />
     <None Remove="Resources\Icons\ic_user_three.png" />
     <None Remove="Resources\Icons\ic_user_two.png" />
+    <None Remove="Interfaces\" />
+    <None Remove="Views\Pokemon\" />
+    <None Remove="ViewModels\VMPokemon\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -36,6 +39,9 @@
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Fonts\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Views\Pokemon\" />
+    <Folder Include="ViewModels\VMPokemon\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icons\ic_arrow_back.png" />
